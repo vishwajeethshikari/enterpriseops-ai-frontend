@@ -965,7 +965,7 @@ function InvestigationReport({
             {agents === null ? (
               <p className="muted-inline">Agent results are not requested automatically. Run the existing multi-agent endpoint when additional analysis is useful.</p>
             ) : (
-              <ResponseTree value={agents} />
+              <MultiAgentResults value={agents} />
             )}
           </section>
         </div>
@@ -996,6 +996,43 @@ function InvestigationReport({
         </aside>
       </div>
     </div>
+  );
+}
+
+function MultiAgentResults({ value }: { value: unknown }) {
+  const resultGroups = [
+    { name: "Investigator", pattern: /investigator/i },
+    { name: "Policy", pattern: /policy/i },
+    { name: "Triage", pattern: /triage/i },
+  ].flatMap(({ name, pattern }) => {
+    const entries = collectMatchingValues(value, pattern);
+    return entries.length > 0 ? [{ name, entries }] : [];
+  });
+
+  if (resultGroups.length === 0) {
+    return <ResponseTree value={value} />;
+  }
+
+  return (
+    <>
+      <div className="agent-result-groups">
+        {resultGroups.map(({ name, entries }) => (
+          <section className="agent-result-card" key={name}>
+            <h4>{name} results</h4>
+            {entries.map((entry, index) => (
+              <div className="agent-result-entry" key={`${entry.label}-${index}`}>
+                <h5>{formatLabel(entry.label)}</h5>
+                <ResponseTree value={entry.value} />
+              </div>
+            ))}
+          </section>
+        ))}
+      </div>
+      <details className="agent-raw-response">
+        <summary>View complete multi-agent response</summary>
+        <ResponseTree value={value} />
+      </details>
+    </>
   );
 }
 

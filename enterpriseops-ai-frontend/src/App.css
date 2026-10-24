@@ -1176,6 +1176,54 @@
   line-height: 1.6;
 }
 
+.agent-result-groups {
+  display: grid;
+  gap: 12px;
+}
+
+.agent-result-card {
+  min-width: 0;
+  padding: 12px;
+  background: #f8f9fa;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.agent-result-card h4 {
+  margin: 0 0 8px;
+  color: #414956;
+  font-size: 11px;
+  font-weight: 680;
+}
+
+.agent-result-entry + .agent-result-entry {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.agent-result-entry h5 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.agent-raw-response {
+  margin-top: 12px;
+  color: #5e6573;
+  font-size: 10px;
+}
+
+.agent-raw-response summary {
+  cursor: pointer;
+}
+
+.agent-raw-response > .response-fields,
+.agent-raw-response > .response-list {
+  margin-top: 10px;
+}
+
 .report-context {
   align-self: start;
   background: #f5f6f5;

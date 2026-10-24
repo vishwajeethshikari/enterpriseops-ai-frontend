@@ -1,0 +1,9 @@
+ enterpriseops-ai-frontend/README.md         |   86 [32m+[m[31m-[m
+ enterpriseops-ai-frontend/index.html        |    4 [32m+[m[31m-[m
+ enterpriseops-ai-frontend/package-lock.json |  128 [32m+[m[31m-[m
+ enterpriseops-ai-frontend/package.json      |    6 [32m+[m[31m-[m
+ enterpriseops-ai-frontend/src/App.css       | 2275 [32m+++++++++++++++++++++[m[31m------[m
+ enterpriseops-ai-frontend/src/App.tsx       | 1416 [32m++++++++++[m[31m-------[m
+ enterpriseops-ai-frontend/src/index.css     |  141 [32m+[m[31m-[m
+ enterpriseops-ai-frontend/src/main.tsx      |    9 [32m+[m[31m-[m
+ 8 files changed, 2905 insertions(+), 1160 deletions(-)
